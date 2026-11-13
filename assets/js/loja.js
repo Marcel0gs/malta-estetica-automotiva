@@ -136,9 +136,9 @@
   const qtdEtapa = id => C.produtos.filter(p => p.etapas.includes(id)).length;
   const listaCat = $('#lista-categorias');
   if (listaCat) listaCat.innerHTML = C.etapas.map(e => `
-    <a class="categoria" href="#loja" data-etapa="${e.id}">
-      ${e.fundo ? `<img class="categoria__fundo" src="assets/img/categorias/${e.fundo}.webp" alt="" width="800" height="533" loading="lazy" decoding="async">` : ''}
-      <span class="categoria__cena" aria-hidden="true">${(e.capa || []).map(c => { const [f, k] = c.split(':'); return `<img src="assets/img/produtos/${f}.webp" alt="" width="800" height="800" loading="lazy" decoding="async"${k ? ` style="--k:${Number(k)}"` : ''}>`; }).join('')}</span>
+    <a class="categoria${e.arte ? ' categoria--arte' : ''}" href="#loja" data-etapa="${e.id}">
+      ${e.arte ? `<img class="categoria__fundo" src="assets/img/categorias/${e.arte}.webp" alt="" width="900" height="600" loading="lazy" decoding="async">` : `
+      <span class="categoria__cena" aria-hidden="true">${(e.capa || []).map(c => { const [f, k] = c.split(':'); return `<img src="assets/img/produtos/${f}.webp" alt="" width="800" height="800" loading="lazy" decoding="async"${k ? ` style="--k:${Number(k)}"` : ''}>`; }).join('')}</span>`}
       <span class="categoria__txt"><span class="categoria__nome">${esc(e.nome)}</span><span class="categoria__qtd">${qtdEtapa(e.id)} produtos</span></span>
     </a>`).join('');
 
@@ -485,6 +485,10 @@
     ].join('\n').replace(/ /g, ' ');
     rastrear('begin_checkout', { currency: 'BRL', value: totalCarrinho(), items: carrinho.map(i => ({ item_id: i.id, item_name: nomeItem(i), quantity: i.qtd })) });
     window.open(linkWhats(msg), '_blank', 'noopener');
+    // Agradecimento no lugar do formulário, com o link de novo caso o navegador bloqueie a janela
+    $('#obrigado-whats').href = linkWhats(msg);
+    $('#obrigado').hidden = false;
+    dlgCarrinho.classList.add('is-obrigado');
   });
 
   /* ---------- Cliques da página toda ---------- */
@@ -525,6 +529,9 @@
     }
   });
 
+  // Carrinho fechado volta ao normal pra próxima compra
+  dlgCarrinho.addEventListener('close', () => { dlgCarrinho.classList.remove('is-obrigado'); $('#obrigado').hidden = true; });
+
   // Clique fora da janela fecha
   [dlgProduto, dlgCarrinho].forEach(d => d.addEventListener('click', e => {
     if (e.target !== d) return;
@@ -535,6 +542,20 @@
   $('#ordem').addEventListener('change', e => { estado.ordem = e.target.value; renderLoja(); });
 
   renderCarrinho();
+
+  /* ---------- Atendimento no WhatsApp: sai do caminho dos botões do topo ----------
+     O botão fica no canto de baixo da tela. Enquanto os botões de algum banner passam pela faixa
+     de baixo (os 18% finais da tela), ele some, senão cobre o "Agendar estética" no celular. */
+  const whats = $('.whats-flutuante'), botoesTopo = $$('.slide__acoes');
+  if (whats && botoesTopo.length && 'IntersectionObserver' in window) {
+    const naFaixa = new Set();
+    whats.classList.add('is-escondido');
+    const obs = new IntersectionObserver(entradas => {
+      entradas.forEach(en => en.isIntersecting ? naFaixa.add(en.target) : naFaixa.delete(en.target));
+      whats.classList.toggle('is-escondido', naFaixa.size > 0);
+    }, { rootMargin: '-82% 0px 0px 0px' });
+    botoesTopo.forEach(el => obs.observe(el));
+  }
 
   /* ---------- Topo: rodízio de banners ---------- */
   const topo = $('#vitrine-topo');

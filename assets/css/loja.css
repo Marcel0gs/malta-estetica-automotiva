@@ -38,7 +38,8 @@
 html { scroll-behavior: smooth; scroll-padding-top: 130px; -webkit-text-size-adjust: 100%; }
 body {
   margin: 0; background: var(--bancada); color: var(--texto);
-  font-family: 'Archivo', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  /* Saira: letra quadrada e limpa, no estilo do logo (pedido dele em 13/11/2026: "mais quadradinho, menos redondinho") */
+  font-family: 'Saira', system-ui, -apple-system, 'Segoe UI', sans-serif;
   font-size: 16px; line-height: 1.55; font-stretch: 100%;
   -webkit-font-smoothing: antialiased;
 }
@@ -48,7 +49,7 @@ img { display: block; max-width: 100%; height: auto; }
 button, input, select { font: inherit; color: inherit; }
 button { cursor: pointer; }
 a { color: inherit; }
-h1, h2, h3 { margin: 0; font-stretch: var(--largo); line-height: 1.05; letter-spacing: -.01em; text-wrap: balance; }
+h1, h2, h3 { margin: 0; font-stretch: 100%; line-height: 1.08; letter-spacing: .02em; text-wrap: balance; }
 p { margin: 0; }
 :focus-visible { outline: 3px solid var(--foco); outline-offset: 2px; }
 .faixa :focus-visible, .topo :focus-visible, .etapas :focus-visible, .topo-loja :focus-visible, .kit-banner :focus-visible,
@@ -68,7 +69,7 @@ p { margin: 0; }
   display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
   min-height: 48px; padding: .8rem 1.5rem; border-radius: 999px;
   background: var(--acento); color: var(--acento-texto); border: 1px solid var(--acento);
-  font-weight: 700; font-size: 1rem; text-decoration: none; white-space: nowrap;
+  font-weight: 700; font-size: .92rem; letter-spacing: .06em; text-transform: uppercase; text-decoration: none; white-space: nowrap;
   transition: transform .2s ease, background-color .15s ease, border-color .3s ease;
 }
 .btn::before {
@@ -101,9 +102,12 @@ p { margin: 0; }
 .topo__linha { display: grid; grid-template-columns: 1fr auto; grid-template-areas: "marca carrinho" "busca busca"; align-items: center; gap: 10px 16px; padding-top: 10px; padding-bottom: 10px; }
 .marca { grid-area: marca; display: inline-flex; align-items: center; gap: 10px; text-decoration: none; line-height: 1; justify-self: start; }
 .marca__m { width: 38px; height: 36px; flex: none; color: var(--acento); filter: drop-shadow(0 0 5px rgba(124, 255, 58, .45)); }
+/* Logo na horizontal, como na arte de gratidão dele: M verde, fio verde em pé, MALTA (vetorizado do
+   post do Instagram, símbolo #malta-nome) e ESTÉTICA AUTOMOTIVA espaçado na mesma largura do nome */
+.marca__risco { align-self: stretch; width: 1px; margin: 2px 2px; background: var(--acento); opacity: .75; }
 .marca__txt { display: inline-flex; flex-direction: column; }
-.marca__nome { font-stretch: var(--largo); font-weight: 900; font-size: 1.45rem; letter-spacing: .01em; }
-.marca__sub { font-size: .72rem; color: var(--claro-suave); margin-top: 3px; letter-spacing: .02em; }
+.marca__nome { display: block; width: 140px; height: 20.84px; fill: currentColor; overflow: visible; }
+.marca__sub { margin-top: 6px; font-size: .62rem; font-weight: 600; line-height: 1; letter-spacing: .157em; text-transform: uppercase; color: var(--acento); white-space: nowrap; }
 
 .busca { grid-area: busca; position: relative; }
 .busca input {
@@ -143,7 +147,7 @@ p { margin: 0; }
 .etapas { background: var(--pintura); color: var(--claro); }
 .etapas__lista { display: flex; gap: 4px; overflow-x: auto; scrollbar-width: none; padding-top: 6px; padding-bottom: 6px; }
 .etapas__lista::-webkit-scrollbar { display: none; }
-.etapas__lista a { flex: none; padding: .55rem .85rem; border-radius: 999px; text-decoration: none; font-size: .9375rem; color: var(--claro-suave); font-weight: 500; }
+.etapas__lista a { flex: none; padding: .55rem .85rem; border-radius: 999px; text-decoration: none; font-size: .8rem; color: var(--claro-suave); font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
 .etapas__lista a:hover, .etapas__lista a:focus-visible { color: #fff; background: var(--pintura-3); }
 
 /* ---------- Topo em rodízio: 5 banners empilhados na mesma célula, trocando por opacidade ---------- */
@@ -165,9 +169,8 @@ p { margin: 0; }
 .slide.is-ativo .slide__texto > :nth-child(3) { animation-delay: .16s; }
 .slide.is-ativo .slide__texto > :nth-child(4) { animation-delay: .24s; }
 .slide.is-ativo .slide__texto > :nth-child(5) { animation-delay: .32s; }
-.slide__olho { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: .78rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--acento); }
-.slide__olho::before { content: ""; width: 18px; height: 2px; background: currentColor; box-shadow: 0 0 8px var(--acento); }
-.topo-loja h1, .slide__titulo { font-size: clamp(2.1rem, 8.2vw, 3.6rem); font-weight: 850; line-height: .98; letter-spacing: -.02em; }
+.slide__olho { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 12px; font-size: .78rem; font-weight: 600; letter-spacing: .26em; text-transform: uppercase; color: var(--acento); }
+.topo-loja h1, .slide__titulo { font-size: clamp(1.8rem, 6.8vw, 3rem); font-weight: 700; line-height: 1.06; letter-spacing: .03em; text-transform: uppercase; }
 .slide__texto > p:not(.slide__olho):not(.slide__preco) { margin-top: 1rem; color: #c3cad3; font-size: 1.0625rem; max-width: 31rem; }
 .slide__preco { display: flex; align-items: baseline; gap: 12px; margin-top: 1rem; font-variant-numeric: tabular-nums; }
 .slide__preco s { color: #8f98a3; }
@@ -215,7 +218,7 @@ p { margin: 0; }
 .secao--colada { padding-top: 8px; }
 .secao__cabeca { display: flex; align-items: end; justify-content: space-between; gap: 12px 24px; flex-wrap: wrap; margin-bottom: 24px; }
 .secao__cabeca--coluna { flex-direction: column; align-items: start; }
-.secao__cabeca h2, .estetica h2, .como h2 { font-size: clamp(1.75rem, 4.6vw, 2.6rem); font-weight: 800; }
+.secao__cabeca h2, .estetica h2, .como h2 { font-size: clamp(1.5rem, 4vw, 2.25rem); font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
 .secao__cabeca p { color: var(--suave); max-width: 46rem; }
 .secao__link { font-weight: 600; text-underline-offset: 4px; }
 .aviso-preco { font-size: .9rem; background: #fff6d6; color: #5c4a00; padding: 6px 10px; border-radius: 6px; }
@@ -268,8 +271,18 @@ p { margin: 0; }
 .categoria:hover .categoria__cena img:nth-child(1) { transform: translateX(-4%); }
 .categoria:hover .categoria__cena img:nth-child(2) { transform: translateX(4%); }
 .categoria__txt { position: absolute; z-index: 3; left: 14px; top: 12px; right: 14px; display: flex; flex-direction: column; }
-.categoria__nome { font-stretch: var(--largo); font-weight: 800; font-size: 1.05rem; line-height: 1.1; }
+.categoria__nome { font-weight: 700; font-size: 1.05rem; line-height: 1.1; letter-spacing: .05em; text-transform: uppercase; }
 .categoria__qtd { font-size: .82rem; color: var(--suave); margin-top: 2px; }
+/* Com arte pronta (cena escura com os produtos dentro). No celular e no tablet o título fica numa
+   faixa escura em cima e a arte entra por baixo, esfumada no topo (no bloco estreito, título por
+   cima da arte cobria a tampa dos frascos). No computador a arte ocupa o bloco todo. */
+.categoria--arte { aspect-ratio: 1 / 1.28; background: var(--pintura); color: var(--claro); }
+.categoria--arte .categoria__fundo {
+  top: 26%; height: 74%; object-position: 74% 50%;
+  -webkit-mask-image: linear-gradient(180deg, transparent, #000 22%); mask-image: linear-gradient(180deg, transparent, #000 22%);
+}
+.categoria--arte .categoria__nome { font-size: min(1.05rem, 3.9vw); }
+.categoria--arte .categoria__qtd { color: var(--claro-suave); }
 
 /* ---------- Guia por problema ---------- */
 .guia { background: var(--cartao); border-top: 1px solid var(--linha); border-bottom: 1px solid var(--linha); }
@@ -307,7 +320,7 @@ p { margin: 0; }
 .kit-banner__arte::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(10, 13, 17, 0) 55%, var(--pintura) 100%); }
 .kit-banner__texto { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: start; gap: 10px; margin-top: -36px; padding: 0 20px 22px; }
 .kit-banner__selo { background: var(--acento); color: var(--acento-texto); font-weight: 800; font-size: .8rem; padding: 4px 10px; border-radius: 999px; font-variant-numeric: tabular-nums; }
-.kit-banner h3 { font-size: clamp(1.6rem, 5.6vw, 2.5rem); font-weight: 850; line-height: 1; letter-spacing: -.02em; }
+.kit-banner h3 { font-size: clamp(1.4rem, 4.8vw, 2.15rem); font-weight: 700; line-height: 1.06; letter-spacing: .03em; text-transform: uppercase; }
 .kit-banner__desc { color: var(--claro-suave); max-width: 30rem; }
 .kit-banner__itens { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
 .kit-banner__itens button { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 3px 12px 3px 3px; border-radius: 999px; border: 1px solid var(--linha-escura); background: rgba(255, 255, 255, .06); color: var(--claro); font-weight: 600; font-size: .86rem; }
@@ -365,7 +378,7 @@ p { margin: 0; }
 .servico__cuidado--limpeza { color: #93d2ff; }
 .servico__cuidado--restauracao { color: #ffc966; }
 .servico__cuidado--protecao { color: var(--acento); }
-.servico h3 { font-stretch: 100%; font-size: 1.2rem; font-weight: 750; line-height: 1.25; letter-spacing: 0; }
+.servico h3 { font-stretch: 100%; font-size: 1.08rem; font-weight: 700; line-height: 1.25; letter-spacing: .04em; text-transform: uppercase; }
 .servico__texto { color: var(--claro-suave); font-size: .95rem; }
 .servico__agendar { margin-top: auto; align-self: start; display: inline-flex; align-items: center; gap: .45rem; min-height: 44px; padding: 0 1rem; border-radius: 999px; border: 1px solid rgba(255, 255, 255, .3); text-decoration: none; font-weight: 600; white-space: nowrap; }
 .servico__agendar:hover { background: var(--acento); border-color: var(--acento); color: var(--acento-texto); }
@@ -388,7 +401,7 @@ p { margin: 0; }
 .insta__avatar { flex: none; width: 68px; height: 68px; padding: 3px; border-radius: 50%; background: conic-gradient(from 200deg, #f9ce34, #ee2a7b, #6228d7, #ee2a7b, #f9ce34); }
 .insta__avatar > span { width: 100%; height: 100%; display: grid; place-items: center; border-radius: 50%; background: #000; border: 3px solid var(--cartao); color: var(--acento); }
 .insta__avatar svg { width: 34px; height: 32px; filter: drop-shadow(0 0 4px rgba(124, 255, 58, .5)); }
-.insta h2 { font-size: clamp(1.5rem, 4.4vw, 2.3rem); font-weight: 800; }
+.insta h2 { font-size: clamp(1.35rem, 3.8vw, 2rem); font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
 .insta__perfil p { color: var(--suave); margin-top: 4px; }
 .insta__perfil a { color: var(--texto); font-weight: 700; text-underline-offset: 3px; }
 .insta__grade { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; }
@@ -423,6 +436,24 @@ p { margin: 0; }
 .barra-carrinho button { width: 100%; min-height: 54px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 0 18px; border: 0; border-radius: 999px; background: var(--acento); color: var(--acento-texto); font-weight: 700; box-shadow: 0 10px 30px rgba(0, 0, 0, .3); }
 .barra-carrinho span { display: inline-flex; align-items: center; gap: .55rem; }
 .barra-carrinho strong { font-variant-numeric: tabular-nums; }
+
+/* ---------- Atendimento no WhatsApp (acompanha a página) ----------
+   No celular é só o ícone e sobe quando a barra do carrinho aparece; no computador vira pílula com texto.
+   O rodapé ganha folga embaixo pra o botão não cobrir a última linha. */
+.whats-flutuante {
+  position: fixed; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom)); z-index: 44;
+  display: inline-flex; align-items: center; justify-content: center; gap: .55rem;
+  width: 56px; height: 56px; border-radius: 999px;
+  background: var(--acento); color: var(--acento-texto); font-weight: 700; text-decoration: none;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, .3), 0 0 0 1px rgba(10, 13, 17, .1);
+  transition: transform .25s ease, background-color .15s ease, bottom .3s ease, opacity .25s ease, visibility .25s;
+}
+.whats-flutuante.is-escondido { opacity: 0; visibility: hidden; transform: translateY(14px); }
+.whats-flutuante .i { width: 28px; height: 28px; }
+.whats-flutuante:hover, .whats-flutuante:focus-visible { background: var(--acento-escuro); transform: translateY(-2px); }
+.whats-flutuante__txt { display: none; }
+body.tem-barra .whats-flutuante { bottom: calc(86px + env(safe-area-inset-bottom)); }
+.rodape { padding-bottom: 96px; }
 
 /* ---------- Janela do produto ---------- */
 dialog { border: 0; padding: 0; color: var(--texto); }
@@ -469,7 +500,7 @@ dialog::backdrop { background: rgba(6, 8, 11, .62); backdrop-filter: blur(3px); 
 .gaveta[open] { display: flex; animation: entrar .28s cubic-bezier(.2, .8, .2, 1); }
 @keyframes entrar { from { transform: translateX(40px); opacity: 0; } }
 .gaveta__topo { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px 14px 20px; border-bottom: 1px solid var(--linha); }
-.gaveta__topo h2 { font-size: 1.3rem; font-weight: 800; }
+.gaveta__topo h2 { font-size: 1.15rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
 .gaveta__topo .fechar { position: static; box-shadow: none; background: var(--bancada); }
 .gaveta__corpo { flex: 1; overflow: auto; padding: 8px 20px 20px; }
 .itens { list-style: none; margin: 0; padding: 0; }
@@ -531,6 +562,9 @@ body.tem-barra .toast { bottom: 84px; }
   body.tem-barra { padding-bottom: 0; }
   .barra-carrinho { display: none; }
   body.tem-barra .toast { bottom: 24px; }
+  .whats-flutuante, body.tem-barra .whats-flutuante { right: 24px; bottom: 24px; width: auto; height: 54px; padding: 0 22px 0 16px; }
+  .whats-flutuante .i { width: 24px; height: 24px; }
+  .whats-flutuante__txt { display: inline; }
   .topo__linha { grid-template-columns: auto minmax(0, 1fr) auto auto; grid-template-areas: "marca busca agendar carrinho"; gap: 24px; padding-top: 14px; padding-bottom: 14px; }
   .busca { max-width: 620px; width: 100%; justify-self: center; }
   .topo__agendar { display: inline-flex; grid-area: agendar; }
@@ -570,6 +604,13 @@ body.tem-barra .toast { bottom: 84px; }
   .categoria__cena img:nth-child(3) { --x: 65%; }
   .categoria__txt { left: 20px; top: 18px; right: auto; max-width: 42%; }
   .categoria__nome { font-size: 1.3rem; }
+  .categoria--arte .categoria__fundo { top: 0; height: 100%; -webkit-mask-image: none; mask-image: none; }
+  .categoria--arte .categoria__nome { font-size: 1.3rem; }
+  /* título por cima da arte: sombra no canto de cima pra ler sobre a tampa de um balde ou frasco */
+  .categoria--arte::after {
+    content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none;
+    background: linear-gradient(170deg, rgba(10, 13, 17, .72) 0%, rgba(10, 13, 17, .25) 30%, rgba(10, 13, 17, 0) 50%);
+  }
   .guia__resultado { grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr); align-items: start; }
 
   .kits { gap: 22px; }
@@ -599,3 +640,28 @@ body.tem-barra .toast { bottom: 84px; }
   .letreiro__faixa { animation: none !important; flex-wrap: wrap; justify-content: center; row-gap: 18px; }
   .letreiro__faixa + .letreiro__faixa, .letreiro__faixa li.copia { display: none; }
 }
+
+/* ---------- Estilo do post de divulgação dele (Instagram DcyLZvVu_WZ, 13/11/2026) ----------
+   Rótulo pequeno em caixa alta, espaçado e verde (o ESTÉTICA AUTOMOTIVA do logo); título em
+   caixa alta que termina em verde (o "É A NOSSA PAIXÃO!"); número em letra grossa inclinada
+   (o telefone do post). Verde-limão só no escuro; no claro, o verde escuro que passa no contraste. */
+.olho { margin: 0 0 -4px; font-size: .74rem; font-weight: 600; line-height: 1.2; letter-spacing: .26em; text-transform: uppercase; color: var(--acento-tinta); }
+.secao__cabeca > .olho { flex-basis: 100%; }
+.estetica .olho { color: var(--acento); margin-bottom: 8px; }
+.verde { color: var(--acento-tinta); }
+.slide .verde, .estetica .verde, .kit-banner .verde { color: var(--acento); }
+.card__preco, .slide__preco strong, .kit-banner__preco strong, .produto__preco, .total strong, .barra-carrinho strong, .tel {
+  font-style: italic; font-weight: 900; font-stretch: 87.5%; letter-spacing: 0;
+}
+.tel { font-size: 1.2rem; color: var(--claro); }
+
+/* Agradecimento depois de mandar o pedido: a composição da arte de gratidão dele
+   (manuscrita, fina e grossa inclinada em verde), no lugar do formulário */
+.gaveta.is-obrigado .gaveta__corpo, .gaveta.is-obrigado .gaveta__rodape { display: none; }
+.obrigado { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 14px; padding: 28px 24px calc(28px + env(safe-area-inset-bottom)); background: var(--pintura); color: var(--claro); text-align: center; }
+.obrigado[hidden] { display: none; }
+.titulo-mao { margin: 0 0 6px; line-height: 1; }
+.titulo-mao .mao { display: block; font-family: 'Satisfy', cursive; font-size: 3.6rem; font-weight: 400; line-height: 1.1; }
+.titulo-mao .fino { display: block; margin-top: 4px; font-size: 1.2rem; letter-spacing: .04em; }
+.titulo-mao .forte { display: block; margin-top: 2px; font-size: 2.8rem; font-style: italic; font-weight: 900; font-stretch: 87.5%; text-transform: uppercase; color: var(--acento); }
+.obrigado__txt { max-width: 22rem; margin: 0 auto 6px; color: var(--claro-suave); }

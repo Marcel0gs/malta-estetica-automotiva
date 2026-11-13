@@ -37,16 +37,17 @@ window.CATALOGO = {
     { nome: 'Detailer', logo: 'detailer', altura: 34 }
   ],
 
-  // capa: fotos (nome do arquivo em assets/img/produtos) que montam o bloco da categoria,
-  // na ordem fundo esquerdo, fundo direito, frente. ':.8' depois do nome encolhe produto largo.
-  // fundo: arte clara do bloco, em assets/img/categorias/<fundo>.webp.
+  // arte: cena escura pronta do bloco, com os produtos dentro (Codex, prompt em
+  // artes-ia/prompt-<arte>.txt), em assets/img/categorias/<arte>.webp, 900x600.
+  // Categoria nova sem arte ainda: capa (fotos de assets/img/produtos, na ordem fundo esquerdo,
+  // fundo direito, frente; ':.8' depois do nome encolhe produto largo) sobre o estúdio claro.
   etapas: [
-    { id: 'lavagem', nome: 'Lavagem', fundo: 'cat-lavagem', capa: ['balde-a:.9', 'vexus', 'v-floc'] },
-    { id: 'protecao', nome: 'Brilho e proteção', fundo: 'cat-protecao', capa: ['v80', 'blend-spray-wax', 'shiny'] },
-    { id: 'vidros', nome: 'Vidros', fundo: 'cat-vidros', capa: ['prizm', 'toalha-40x60:.72', 'glazy'] },
-    { id: 'interior', nome: 'Interior', fundo: 'cat-interior', capa: ['sintra-fast', 'higicouro', 'intense'] },
-    { id: 'aromatizantes', nome: 'Aromatizantes', fundo: 'cat-aromatizantes', capa: ['arominha-carro-novo:.72', 'aroma-bom-ar', 'aroma-morango'] },
-    { id: 'acessorios', nome: 'Acessórios', fundo: 'cat-acessorios', capa: ['toalha-secagem:.78', 'kit-pinceis-interno:.82', 'luva-2-em-1:.74'] }
+    { id: 'lavagem', nome: 'Lavagem', arte: 'cat-escuro-lavagem' },
+    { id: 'protecao', nome: 'Brilho e proteção', arte: 'cat-escuro-protecao' },
+    { id: 'vidros', nome: 'Vidros', arte: 'cat-escuro-vidros' },
+    { id: 'interior', nome: 'Interior', arte: 'cat-escuro-interior' },
+    { id: 'aromatizantes', nome: 'Aromatizantes', arte: 'cat-escuro-aromatizantes' },
+    { id: 'acessorios', nome: 'Acessórios', arte: 'cat-escuro-acessorios' }
   ],
 
   produtos: [
