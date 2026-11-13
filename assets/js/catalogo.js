@@ -39,13 +39,14 @@ window.CATALOGO = {
 
   // capa: fotos (nome do arquivo em assets/img/produtos) que montam o bloco da categoria,
   // na ordem fundo esquerdo, fundo direito, frente. ':.8' depois do nome encolhe produto largo.
+  // fundo: arte clara do bloco, em assets/img/categorias/<fundo>.webp.
   etapas: [
-    { id: 'lavagem', nome: 'Lavagem', capa: ['balde-a:.9', 'vexus', 'v-floc'] },
-    { id: 'protecao', nome: 'Brilho e proteção', capa: ['v80', 'blend-spray-wax', 'shiny'] },
-    { id: 'vidros', nome: 'Vidros', capa: ['prizm', 'toalha-40x60:.72', 'glazy'] },
-    { id: 'interior', nome: 'Interior', capa: ['sintra-fast', 'higicouro', 'intense'] },
-    { id: 'aromatizantes', nome: 'Aromatizantes', capa: ['arominha-carro-novo:.72', 'aroma-bom-ar', 'aroma-morango'] },
-    { id: 'acessorios', nome: 'Acessórios', capa: ['toalha-secagem:.78', 'kit-pinceis-interno:.82', 'luva-2-em-1:.74'] }
+    { id: 'lavagem', nome: 'Lavagem', fundo: 'cat-lavagem', capa: ['balde-a:.9', 'vexus', 'v-floc'] },
+    { id: 'protecao', nome: 'Brilho e proteção', fundo: 'cat-protecao', capa: ['v80', 'blend-spray-wax', 'shiny'] },
+    { id: 'vidros', nome: 'Vidros', fundo: 'cat-vidros', capa: ['prizm', 'toalha-40x60:.72', 'glazy'] },
+    { id: 'interior', nome: 'Interior', fundo: 'cat-interior', capa: ['sintra-fast', 'higicouro', 'intense'] },
+    { id: 'aromatizantes', nome: 'Aromatizantes', fundo: 'cat-aromatizantes', capa: ['arominha-carro-novo:.72', 'aroma-bom-ar', 'aroma-morango'] },
+    { id: 'acessorios', nome: 'Acessórios', fundo: 'cat-acessorios', capa: ['toalha-secagem:.78', 'kit-pinceis-interno:.82', 'luva-2-em-1:.74'] }
   ],
 
   produtos: [

@@ -137,6 +137,7 @@
   const listaCat = $('#lista-categorias');
   if (listaCat) listaCat.innerHTML = C.etapas.map(e => `
     <a class="categoria" href="#loja" data-etapa="${e.id}">
+      ${e.fundo ? `<img class="categoria__fundo" src="assets/img/categorias/${e.fundo}.webp" alt="" width="800" height="533" loading="lazy" decoding="async">` : ''}
       <span class="categoria__cena" aria-hidden="true">${(e.capa || []).map(c => { const [f, k] = c.split(':'); return `<img src="assets/img/produtos/${f}.webp" alt="" width="800" height="800" loading="lazy" decoding="async"${k ? ` style="--k:${Number(k)}"` : ''}>`; }).join('')}</span>
       <span class="categoria__txt"><span class="categoria__nome">${esc(e.nome)}</span><span class="categoria__qtd">${qtdEtapa(e.id)} produtos</span></span>
     </a>`).join('');
