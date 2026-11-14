@@ -420,6 +420,10 @@ p { margin: 0; }
 .rodape__redes { display: flex; gap: 10px; margin-top: 16px; }
 .rodape__redes a { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--linha-escura); display: grid; place-items: center; color: var(--claro); transition: background-color .15s ease, color .15s ease, border-color .15s ease; }
 .rodape__redes a:hover { background: var(--acento); border-color: var(--acento); color: var(--acento-texto); }
+/* acesso do dono ao painel: discreto, sem borda, só acende no mouse ou no foco */
+.rodape__redes .rodape__painel { border-color: transparent; color: var(--claro-suave); opacity: .45; }
+.rodape__redes .rodape__painel .i { width: 18px; height: 18px; }
+.rodape__redes .rodape__painel:hover, .rodape__redes .rodape__painel:focus-visible { opacity: 1; background: none; border-color: var(--linha-escura); color: var(--claro); }
 .rodape__col h2 { font-stretch: 100%; font-size: .78rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--claro); margin-bottom: 14px; }
 .rodape__col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
 .rodape__col a, .rodape__col span { color: var(--claro-suave); text-decoration: none; display: inline-flex; align-items: flex-start; gap: 10px; }
