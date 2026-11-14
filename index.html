@@ -14,7 +14,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Saira:ital,wdth,wght@0,75..125,400..900;1,75..125,400..900&family=Satisfy&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="assets/img/topo/topo-computador-1400.webp" imagesrcset="assets/img/topo/topo-computador-1400.webp 1400w, assets/img/topo/topo-computador.webp 2400w" imagesizes="100vw" type="image/webp" media="(min-width: 900px)">
   <link rel="preload" as="image" href="assets/img/topo/topo-celular.webp" type="image/webp" media="(max-width: 899px)">
-  <link rel="stylesheet" href="assets/css/loja.css?v=8">
+  <link rel="stylesheet" href="assets/css/loja.css?v=10">
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"AutoWash","name":"Malta Estética Automotiva","telephone":"+55 31 99131-0656",
    "address":{"@type":"PostalAddress","streetAddress":"Rua Gabriela Mistral, 102, Cidade Nobre","addressLocality":"Ipatinga","addressRegion":"MG","postalCode":"35162-417","addressCountry":"BR"},
@@ -425,6 +425,10 @@
         <label>Seu nome
           <input name="nome" type="text" autocomplete="given-name" placeholder="Como a Malta te chama">
         </label>
+        <label>Seu WhatsApp
+          <input name="telefone" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="(31) 99999-9999" aria-describedby="erro-telefone">
+        </label>
+        <p class="pedido__erro" id="erro-telefone" role="alert" hidden>Coloque seu WhatsApp com DDD pra Malta confirmar o pedido.</p>
         <label>Como prefere pagar
           <select name="pagamento" id="campo-pagamento"></select>
         </label>
@@ -445,7 +449,9 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-  <script src="assets/js/catalogo.js?v=6"></script>
-  <script src="assets/js/loja.js?v=8"></script>
+  <!-- Catálogo ao vivo do painel da Malta (malta-painel). Se ele não responder, vale o catalogo.js daqui. -->
+  <script src="https://malta-painel.marcel0gs.workers.dev/catalogo.js"></script>
+  <script>window.CATALOGO || document.write('<script src="assets/js/catalogo.js?v=7"><\/script>');</script>
+  <script src="assets/js/loja.js?v=10"></script>
 </body>
 </html>
